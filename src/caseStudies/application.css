@@ -1,0 +1,12 @@
+.odd{
+	-fx-background-color:gray;
+	-fx-padding:20px;
+	-fx-font-size:150%;
+	-fx-text-fill:white;
+}
+.even{
+	-fx-background-color:darkgrey;
+	-fx-padding:20px;
+	-fx-font-size:150%;
+	-fx-text-fill:white;
+}
