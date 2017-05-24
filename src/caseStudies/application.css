@@ -10,3 +10,14 @@
 	-fx-font-size:150%;
 	-fx-text-fill:white;
 }
+.buttons{
+	-fx-alignment:center;
+}
+.question{
+	-fx-alignment:center;
+	-fx-font-size:150%;
+	-fx-background-color:black;
+}
+.text{
+	-fx-text-fill:white;
+}
