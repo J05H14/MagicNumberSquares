@@ -1,11 +1,23 @@
-.odd{
+.odd1{
 	-fx-background-color:gray;
 	-fx-padding:20px;
 	-fx-font-size:150%;
 	-fx-text-fill:white;
 }
-.even{
+.even1{
 	-fx-background-color:darkgrey;
+	-fx-padding:20px;
+	-fx-font-size:150%;
+	-fx-text-fill:white;
+}
+.odd2{
+	-fx-background-color:green;
+	-fx-padding:20px;
+	-fx-font-size:150%;
+	-fx-text-fill:white;
+}
+.even2{
+	-fx-background-color:darkgreen;
 	-fx-padding:20px;
 	-fx-font-size:150%;
 	-fx-text-fill:white;
