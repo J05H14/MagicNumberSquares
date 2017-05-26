@@ -22,6 +22,31 @@
 	-fx-font-size:150%;
 	-fx-text-fill:white;
 }
+.odd3{
+	-fx-background-color:blue;
+	-fx-padding:20px;
+	-fx-font-size:150%;
+	-fx-text-fill:white;
+}
+.even3{
+	-fx-background-color:darkblue;
+	-fx-padding:20px;
+	-fx-font-size:150%;
+	-fx-text-fill:white;
+}
+.odd4{
+	-fx-background-color:red;
+	-fx-padding:20px;
+	-fx-font-size:150%;
+	-fx-text-fill:white;
+}
+.even4{
+	-fx-background-color:darkred;
+	-fx-padding:20px;
+	-fx-font-size:150%;
+	-fx-text-fill:white;
+}
+
 .buttons{
 	-fx-alignment:center;
 }

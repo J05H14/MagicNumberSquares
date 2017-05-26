@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 
 public class PredictorGUI extends Application{
 
-	HBox buttons = new HBox();
+	int result = 0;
 	@Override
 	public void start(Stage primaryStage){
 		try{
@@ -22,7 +22,7 @@ public class PredictorGUI extends Application{
 			Scene sc = new Scene(bp);
 			sc.getStylesheets().add("caseStudies/application.css");
 
-			int setNumber = 1;
+
 
 			Label instructions = new Label("Think of a Number Between 1-31.");
 			Label question = new Label("Is Your Number here?");
@@ -31,28 +31,11 @@ public class PredictorGUI extends Application{
 			VBox top = new VBox(instructions, question);
 			top.getStyleClass().add("question");
 
-			Button yes = new Button("YES");
-			Button no = new Button("NO");
 
-			no.setMinWidth(150);
-			yes.setMinWidth(150);
-
-			yes.setOnAction(e -> {
-				if(setNumber == 1){
-					set2();
-				}
-				else if(setNumber == 2){
-					set3();
-				}
-				System.out.println("TESTING");
-			});
-
-			buttons.getChildren().addAll(yes, no);
-			buttons.getStyleClass().add("buttons");
 
 			bp.setTop(top);
 			bp.setCenter(set1());
-			bp.setBottom(buttons);
+			bp.setBottom(buttonBox(1));
 
 			primaryStage.setScene(sc);
 			primaryStage.setTitle("Number Guesser");
@@ -61,6 +44,44 @@ public class PredictorGUI extends Application{
 		catch(Exception e){
 			e.printStackTrace();
 		}
+	}
+
+	public HBox buttonBox(int setNum){
+		HBox buttons = new HBox();
+		Button yes = new Button("YES");
+		Button no = new Button("NO");
+
+		no.setMinWidth(150);
+		yes.setMinWidth(150);
+
+		yes.setOnAction(e -> {
+			if(setNum == 1){
+				set2();
+				result += 1;
+			}
+			else if(setNum == 2){
+				set3();
+				result +=2;
+			}
+			else if(setNum == 3){
+				set4();
+				result +=4;
+			}
+			else if(setNum == 4){
+				//set5();
+				result +=8;
+			}
+			System.out.println("TESTING");
+		});
+		no.setOnAction(e -> {
+			set2();
+			System.out.println("TESTING");
+		});
+
+		buttons.getChildren().addAll(yes, no);
+		buttons.getStyleClass().add("buttons");
+
+		return buttons;
 	}
 
 	public GridPane set1(){
@@ -94,12 +115,12 @@ public class PredictorGUI extends Application{
 				count++;
 			}
 		}
-		secondaryStage(set2);
+		secondaryStage(set2, 2);
 	}
 	public void set3(){
 		int[] set3Numbers = {4, 5, 6, 7, 12, 13, 14, 15, 20, 21, 22, 23, 28, 29, 30, 31};
 		GridPane set3 = new GridPane();
-		
+
 		for(int row = 0, count = 0; row < 4; row++){
 			for(int col = 0; col < 4; col++){
 				int num = set3Numbers[count];
@@ -109,11 +130,31 @@ public class PredictorGUI extends Application{
 				count++;
 			}
 		}
+
+		secondaryStage(set3, 3);
+	}
+	public void set4(){
+		int[] set4Numbers = {8, 9, 10, 11, 12, 13, 14, 15, 24, 25, 26, 27, 28, 29, 30, 31};
+		GridPane set4 = new GridPane();
 		
-		secondaryStage(set3);
+		for(int row = 0, count = 0; row < 4; row++){
+			for(int col = 0; col < 4; col++){
+				int num = set4Numbers[count];
+				Label number = new Label (num + "");
+				number = color(number, row + col, 4);
+				set4.add(number, col, row);
+				count++;
+			}
+		}
+		
+		secondaryStage(set4, 4);
+	}
+	public void set5(){
+		int[] set5Numbers = {16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31};
+		GridPane set5 = new GridPane();
 	}
 
-	public void secondaryStage(GridPane gp){
+	public void secondaryStage(GridPane gp, int setNum){
 		Stage stage = new Stage();
 		BorderPane bp = new BorderPane();
 		Scene sc = new Scene(bp);
@@ -126,8 +167,10 @@ public class PredictorGUI extends Application{
 
 		bp.setTop(top);
 		bp.setCenter(gp);
+		bp.setBottom(buttonBox(setNum));
 
 		stage.setScene(sc);
+		stage.setTitle("Number Guesser");
 		stage.show();
 	}
 
@@ -146,6 +189,22 @@ public class PredictorGUI extends Application{
 			}
 			else{
 				label.getStyleClass().add("odd2");
+			}
+		}
+		else if(set == 3){
+			if(num % 2 == 0){
+				label.getStyleClass().add("even3");
+			}
+			else{
+				label.getStyleClass().add("odd3");
+			}
+		}
+		else if(set == 4){
+			if(num % 2 == 0){
+				label.getStyleClass().add("even4");
+			}
+			else{
+				label.getStyleClass().add("odd4");
 			}
 		}
 		label.setAlignment(Pos.CENTER);
