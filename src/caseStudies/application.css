@@ -69,3 +69,14 @@
 .text{
 	-fx-text-fill:white;
 }
+.ansText{
+	-fx-background-color:midnightblue;
+	-fx-font-style:oblique;
+	-fx-font-size:200%;
+	
+}
+.ans{
+	-fx-background-color:midnightblue;
+	-fx-font-style:oblique;
+	-fx-font-size:300%;
+}

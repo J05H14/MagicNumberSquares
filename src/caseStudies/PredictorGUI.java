@@ -93,13 +93,26 @@ public class PredictorGUI extends Application{
 		Stage rStage = new Stage();
 		BorderPane bp = new BorderPane();
 		Scene sc = new Scene(bp);
+		sc.getStylesheets().add("caseStudies/application.css");
 		
 		Image image = new Image("file:image/fortune.png");
 		ImageView iv = new ImageView(image);
 		iv.setPreserveRatio(true);
 		iv.setFitHeight(400);
 		
+		Label beginning = new Label("Your number is...");
+		beginning.getStyleClass().add("text");
+		HBox top = new HBox(beginning);
+		top.getStyleClass().add("ansText");
+		
+		Label answer = new Label(result + "");
+		answer.getStyleClass().add("text");
+		HBox res = new HBox(answer);
+		res.getStyleClass().add("ans");
+		
+		bp.setTop(top);
 		bp.setCenter(iv);
+		bp.setBottom(res);
 		
 		rStage.setScene(sc);
 		rStage.show();
