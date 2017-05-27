@@ -46,7 +46,18 @@
 	-fx-font-size:150%;
 	-fx-text-fill:white;
 }
-
+.odd5{
+	-fx-background-color:magenta;
+	-fx-padding:20px;
+	-fx-font-size:150%;
+	-fx-text-fill:white;
+}
+.even5{
+	-fx-background-color:darkviolet;
+	-fx-padding:20px;
+	-fx-font-size:150%;
+	-fx-text-fill:white;
+}
 .buttons{
 	-fx-alignment:center;
 }

@@ -6,6 +6,8 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -68,8 +70,12 @@ public class PredictorGUI extends Application{
 				result +=4;
 			}
 			else if(setNum == 4){
-				//set5();
+				set5();
 				result +=8;
+			}
+			else if(setNum == 5){
+				resultStage();
+				result +=16;
 			}
 			System.out.println("TESTING");
 		});
@@ -82,6 +88,21 @@ public class PredictorGUI extends Application{
 		buttons.getStyleClass().add("buttons");
 
 		return buttons;
+	}
+	public void resultStage(){
+		Stage rStage = new Stage();
+		BorderPane bp = new BorderPane();
+		Scene sc = new Scene(bp);
+		
+		Image image = new Image("file:image/fortune.png");
+		ImageView iv = new ImageView(image);
+		iv.setPreserveRatio(true);
+		iv.setFitHeight(400);
+		
+		bp.setCenter(iv);
+		
+		rStage.setScene(sc);
+		rStage.show();
 	}
 
 	public GridPane set1(){
@@ -101,7 +122,6 @@ public class PredictorGUI extends Application{
 		}
 		return set1;
 	}
-
 	public void set2(){
 		int[] set2Numbers = {2, 3, 6, 7, 10, 11, 14, 15, 18, 19 ,22, 23, 26, 27, 30, 31};
 		GridPane set2 = new GridPane();
@@ -152,6 +172,18 @@ public class PredictorGUI extends Application{
 	public void set5(){
 		int[] set5Numbers = {16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31};
 		GridPane set5 = new GridPane();
+		
+		for(int row = 0, count = 0; row < 4; row++){
+			for(int col = 0; col < 4; col++){
+				int num = set5Numbers[count];
+				Label number = new Label(num + "");
+				number = color(number, col + row, 5);
+				set5.add(number, col, row);
+				count++;
+			}
+		}
+		
+		secondaryStage(set5, 5);
 	}
 
 	public void secondaryStage(GridPane gp, int setNum){
@@ -160,9 +192,11 @@ public class PredictorGUI extends Application{
 		Scene sc = new Scene(bp);
 		sc.getStylesheets().add("caseStudies/application.css");
 
+		Label instructions = new Label("Think of a Number Between 1-31.");
 		Label question = new Label("How About Here?");
 		question.getStyleClass().add("text");
-		HBox top = new HBox(question);
+		instructions.getStyleClass().add("text");
+		VBox top = new VBox(instructions, question);
 		top.getStyleClass().add("question");
 
 		bp.setTop(top);
@@ -205,6 +239,14 @@ public class PredictorGUI extends Application{
 			}
 			else{
 				label.getStyleClass().add("odd4");
+			}
+		}
+		else if(set == 5){
+			if(num % 2 == 0){
+				label.getStyleClass().add("even5");
+			}
+			else{
+				label.getStyleClass().add("odd5");
 			}
 		}
 		label.setAlignment(Pos.CENTER);
