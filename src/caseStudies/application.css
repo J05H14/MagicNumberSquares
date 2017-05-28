@@ -70,13 +70,14 @@
 	-fx-text-fill:white;
 }
 .ansText{
-	-fx-background-color:midnightblue;
+	-fx-background-color:#003366;
 	-fx-font-style:oblique;
 	-fx-font-size:200%;
 	
 }
 .ans{
-	-fx-background-color:midnightblue;
+	-fx-background-color:#003366;
 	-fx-font-style:oblique;
 	-fx-font-size:300%;
+	-fx-alignment: center;
 }

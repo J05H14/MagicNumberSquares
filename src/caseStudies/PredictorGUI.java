@@ -2,7 +2,6 @@ package caseStudies;
 
 import javafx.application.Application;
 import javafx.geometry.Pos;
-import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -74,14 +73,27 @@ public class PredictorGUI extends Application{
 				result +=8;
 			}
 			else if(setNum == 5){
-				resultStage();
 				result +=16;
+				resultStage();
 			}
-			System.out.println("TESTING");
+			System.out.println(result);
 		});
 		no.setOnAction(e -> {
-			set2();
-			System.out.println("TESTING");
+			if(setNum == 1){
+				set2();
+			}
+			else if(setNum == 2){
+				set3();
+			}
+			else if(setNum == 3){
+				set4();
+			}
+			else if(setNum == 4){
+				set5();
+			}
+			else if(setNum == 5){
+				resultStage();
+			}
 		});
 
 		buttons.getChildren().addAll(yes, no);
@@ -115,6 +127,7 @@ public class PredictorGUI extends Application{
 		bp.setBottom(res);
 		
 		rStage.setScene(sc);
+		rStage.setTitle("Number Fortune Teller");
 		rStage.show();
 	}
 
